@@ -51,8 +51,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: i686-linux-musleabi-cross.linux.tgz
-          asset_name: i686-linux-musleabi-cross.linux.tgz
+          asset_path: i686-linux-musl-cross.linux.tgz
+          asset_name: i686-linux-musl-cross.linux.tgz
           asset_content_type: application/zip
 
       - name: Publish Linux (arm64)
@@ -96,8 +96,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: i686-linux-musleabi-cross.win.zip
-          asset_name: i686-linux-musleabi-cross.win.zip
+          asset_path: i686-linux-musl-cross.win.zip
+          asset_name: i686-linux-musl-cross.win.zip
           asset_content_type: application/zip
 
       - name: Publish Windows (arm64)
@@ -141,8 +141,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: i686-linux-musleabi-cross.mac.tgz
-          asset_name: i686-linux-musleabi-cross.mac.tgz
+          asset_path: i686-linux-musl-cross.mac.tgz
+          asset_name: i686-linux-musl-cross.mac.tgz
           asset_content_type: application/zip
 
       - name: Publish MacOS (arm64)
