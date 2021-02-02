@@ -17,14 +17,43 @@ jobs:
         if: github.event.action == 'published'
         run: |
           # linux
+          wget https://musl.cc/aarch64-linux-musl-cross.tgz -O x86_64-linux-musl-cross.linux.tgz
+          wget https://musl.cc/aarch64-linux-musl-cross.tgz -O i686-linux-musl-cross.linux.tgz
           wget https://musl.cc/aarch64-linux-musl-cross.tgz -O aarch64-linux-musl-cross.linux.tgz
           wget https://musl.cc/arm-linux-musleabi-cross.tgz -O arm-linux-musleabi-cross.linux.tgz
           # windows
+          wget https://win.musl.cc/aarch64-linux-musl-cross.zip -O x86_64-linux-musl-cross.win.zip
+          wget https://win.musl.cc/aarch64-linux-musl-cross.zip -O i686-linux-musl-cross.win.zip
           wget https://win.musl.cc/aarch64-linux-musl-cross.zip -O aarch64-linux-musl-cross.win.zip
           wget https://win.musl.cc/arm-linux-musleabi-cross.zip -O arm-linux-musleabi-cross.win.zip
           # macos
+          wget https://mac.musl.cc/aarch64-linux-musl-cross.tgz -O x86_64-linux-musl-cross.mac.tgz
+          wget https://mac.musl.cc/aarch64-linux-musl-cross.tgz -O i686-linux-musl-cross.mac.tgz
           wget https://mac.musl.cc/aarch64-linux-musl-cross.tgz -O aarch64-linux-musl-cross.mac.tgz
           wget https://mac.musl.cc/arm-linux-musleabi-cross.tgz -O arm-linux-musleabi-cross.mac.tgz
+
+        # linux
+      - name: Publish Linux (x86_64)
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: x86_64-linux-musl-cross.linux.tgz
+          asset_name: x86_64-linux-musl-cross.linux.tgz
+          asset_content_type: application/zip
+
+      - name: Publish Linux (i686)
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: i686-linux-musleabi-cross.linux.tgz
+          asset_name: i686-linux-musleabi-cross.linux.tgz
+          asset_content_type: application/zip
 
       - name: Publish Linux (arm64)
         if: github.event.action == 'published'
@@ -48,6 +77,29 @@ jobs:
           asset_name: arm-linux-musleabi-cross.linux.tgz
           asset_content_type: application/zip
 
+        # windows
+      - name: Publish Windows (x86_64)
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: x86_64-linux-musl-cross.win.zip
+          asset_name: x86_64-linux-musl-cross.win.zip
+          asset_content_type: application/zip
+
+      - name: Publish Windows (i686)
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: i686-linux-musleabi-cross.win.zip
+          asset_name: i686-linux-musleabi-cross.win.zip
+          asset_content_type: application/zip
+
       - name: Publish Windows (arm64)
         if: github.event.action == 'published'
         uses: actions/upload-release-asset@v1.0.1
@@ -68,6 +120,29 @@ jobs:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: arm-linux-musleabi-cross.win.zip
           asset_name: arm-linux-musleabi-cross.win.zip
+          asset_content_type: application/zip
+
+        # macos
+      - name: Publish MacOS (x86_64)
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: x86_64-linux-musl-cross.mac.tgz
+          asset_name: x86_64-linux-musl-cross.mac.tgz
+          asset_content_type: application/zip
+
+      - name: Publish MacOS (i686)
+        if: github.event.action == 'published'
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: i686-linux-musleabi-cross.mac.tgz
+          asset_name: i686-linux-musleabi-cross.mac.tgz
           asset_content_type: application/zip
 
       - name: Publish MacOS (arm64)
