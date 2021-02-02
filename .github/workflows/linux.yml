@@ -17,18 +17,18 @@ jobs:
         if: github.event.action == 'published'
         run: |
           # linux
-          wget https://musl.cc/aarch64-linux-musl-cross.tgz -O x86_64-linux-musl-cross.linux.tgz
-          wget https://musl.cc/aarch64-linux-musl-cross.tgz -O i686-linux-musl-cross.linux.tgz
+          wget https://musl.cc/x86_64-linux-musl-cross.tgz -O x86_64-linux-musl-cross.linux.tgz
+          wget https://musl.cc/i686-linux-musl-cross.tgz -O i686-linux-musl-cross.linux.tgz
           wget https://musl.cc/aarch64-linux-musl-cross.tgz -O aarch64-linux-musl-cross.linux.tgz
           wget https://musl.cc/arm-linux-musleabi-cross.tgz -O arm-linux-musleabi-cross.linux.tgz
           # windows
-          wget https://win.musl.cc/aarch64-linux-musl-cross.zip -O x86_64-linux-musl-cross.win.zip
-          wget https://win.musl.cc/aarch64-linux-musl-cross.zip -O i686-linux-musl-cross.win.zip
+          wget https://win.musl.cc/x86_64-linux-musl-cross.zip -O x86_64-linux-musl-cross.win.zip
+          wget https://win.musl.cc/i686-linux-musl-cross.zip -O i686-linux-musl-cross.win.zip
           wget https://win.musl.cc/aarch64-linux-musl-cross.zip -O aarch64-linux-musl-cross.win.zip
           wget https://win.musl.cc/arm-linux-musleabi-cross.zip -O arm-linux-musleabi-cross.win.zip
           # macos
-          wget https://mac.musl.cc/aarch64-linux-musl-cross.tgz -O x86_64-linux-musl-cross.mac.tgz
-          wget https://mac.musl.cc/aarch64-linux-musl-cross.tgz -O i686-linux-musl-cross.mac.tgz
+          wget https://mac.musl.cc/x86_64-linux-musl-cross.tgz -O x86_64-linux-musl-cross.mac.tgz
+          wget https://mac.musl.cc/i686-linux-musl-cross.tgz -O i686-linux-musl-cross.mac.tgz
           wget https://mac.musl.cc/aarch64-linux-musl-cross.tgz -O aarch64-linux-musl-cross.mac.tgz
           wget https://mac.musl.cc/arm-linux-musleabi-cross.tgz -O arm-linux-musleabi-cross.mac.tgz
 
